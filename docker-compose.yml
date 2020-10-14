@@ -1,0 +1,21 @@
+version: '3'
+services: 
+    web:
+        #if docker file is named as Dockerfile then build . will work fine
+        build: 
+        #if the file is named rather then Dockerfile e.g Dockerfile.dev in this case
+            context: .
+            dockerfile: Dockerfile.dev
+        ports: 
+            - "3000:3000"
+        volumes: 
+            - /app/node_modules
+            - .:/app
+    tests:
+        build: 
+            context: .
+            dockerfile: Dockerfile.dev
+        volumes: 
+            - /app/node_modules
+            - .:/app
+        command: ["npm","run","test"]
