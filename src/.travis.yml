@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t wajidse102/docker-travis-ci-build -f Dockerfile.dev .
+
+scripts:
+    - docker run wajidse102/docker-travis-ci-build npm run test -- --coverage
