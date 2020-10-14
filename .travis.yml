@@ -7,3 +7,16 @@ before_install:
 
 scripts:
     - docker run wajidse102/docker-travis-ci-build npm run test -- --coverage
+# TO ask Travis CI to deploy the app to AWS Elastic BeanStalk
+deploy:
+    provider: elasticbeanstalk
+    region: "us-east-1"
+    app: "DockerReactDemo"
+    env: "DockerReactDemo-env"
+    bucket_name: "elasticbeanstalk-us-east-1-673190052361"
+    bucket_path: "DockerReactDemo"
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: 
+        secure: "$AWS_SECRET_KEY"
