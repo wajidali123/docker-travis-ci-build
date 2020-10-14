@@ -9,6 +9,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Hey! I have made changes to app.js
+          Hey! I have changed and merged!
         </p>
         <a
           className="App-link"
