@@ -7,7 +7,6 @@ COPY . .
 
 RUN npm run build
 
-RUN npm build
 
 FROM nginx
 EXPOSE 80
